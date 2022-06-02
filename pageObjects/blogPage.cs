@@ -1,9 +1,13 @@
 using OpenQA.Selenium;
-public class blogPage 
-{
-  private IWebDriver _driver;
-  public blogPage(IWebDriver driver) => this._driver = driver;
+using Navex.QA.Nova;
+using Navex.QA.Nova.PageObjects;
 
-  public IWebElement siteTitle => _driver.FindElement(By.XPath("//h1[@id=\"site-title\"]/a"));
-  public string _titleExpected = "Steven's Notebook";
+namespace dart;
+
+public class blogPage : PageObjectBase
+{
+    private static readonly By PageUniqueIdentifier = By.XPath("//h1[@id=\"site-title\"]");
+    public blogPage(Browser browser) : base(browser, PageUniqueIdentifier) { }
+    public IWebElement siteTitle => Browser.Driver.WebDriver.FindElement(By.XPath("//h1[@id=\"site-title\"]/a"));
+    public string _titleExpected = "Steven's Notebook";
 }
