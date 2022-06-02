@@ -2,9 +2,11 @@ using OpenQA.Selenium;
 using Navex.QA.Nova;
 using Navex.QA.Nova.PageObjects;
 
+namespace dart;
+
 public class insightsHomePage : PageObjectBase
 {
-    private static readonly By PageUniqueIdentifier = By.CssSelector("#Insights_header_text");
+    private static readonly By PageUniqueIdentifier = By.XPath("//div[@id=\"wrap\"]");
     public insightsHomePage(Browser browser) : base(browser, PageUniqueIdentifier) { }
 
 
@@ -15,5 +17,5 @@ public class insightsHomePage : PageObjectBase
     private IWebElement _submitButton => Browser.Driver.WebDriver.FindElement(By.CssSelector("input[type='submit']"));
 
     public IWebElement _forgotPassword => Browser.Driver.WebDriver.FindElement(By.XPath("//a[@id=\"ForgotPassword\"]"));
-    public string _forgotPasswordExpected = "Forgot Password";
+    public string _forgotPasswordExpected = "Forgot password?";
 }
