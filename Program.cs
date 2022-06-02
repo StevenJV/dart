@@ -2,13 +2,11 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-namespace VSCode {
+
 [TestFixture]     
 class Program {
      private IWebDriver driver {get; set;} = null!;
      private String _url = null!;         
-     private String _search = null!;
-     private String _expected = null!;
  
 [SetUp]
 public void SetupTest()
@@ -34,36 +32,20 @@ public void TeardownTest()
 }
 [Test]
 public void testInsightsWobbly()
-{   _url = "https://dm1.in.navex-pe.com/";    // wobbly     
-    _search = "//a[@id=\"ForgotPassword\"]";
-    _expected = "Forgot Password";
-    try{
-        this.driver.Navigate().GoToUrl(this._url);                                              
-        IWebElement titleEl = this.driver.FindElement(By.XPath(_search));
-        String title = titleEl.Text;
-        Assert.AreEqual(_expected , title);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine("Error: " + ex.ToString());
-    }        
+{
+  _url = "https://dm1.in.navex-pe.com/";
+  this.driver.Navigate().GoToUrl(this._url);           
+  insightsHomePage insightsHome = new insightsHomePage(this.driver);
+  Assert.AreEqual(insightsHome._forgotPasswordExpected, insightsHome._forgotPassword.Text);
+     
 }
 [Test]
 public void testInsightsBlog()
 {   
     _url = "https://steven.vorefamily.net/"; 
-    _search = "//h1[@id=\"site-title\"]/a";
-    _expected = "Steven's Notebook";
-    try{
-        this.driver.Navigate().GoToUrl(this._url);                                              
-        IWebElement titleEl = this.driver.FindElement(By.XPath(_search));
-        String title = titleEl.Text;
-        Assert.AreEqual(_expected , title);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine("Error: " + ex.ToString());
-    }        
-}
+  this.driver.Navigate().GoToUrl(this._url);           
+  blogPage blog = new blogPage(this.driver);
+  Assert.AreEqual(blog._titleExpected, blog.siteTitle.Text);
+
 }
 }
