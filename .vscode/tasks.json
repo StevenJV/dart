@@ -46,6 +46,7 @@
         "--logger:trx",
         "${workspaceFolder}/dart.csproj"
       ],
+      "problemMatcher": []
     }
   ]
 }
