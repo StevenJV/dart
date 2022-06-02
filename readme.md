@@ -93,8 +93,8 @@
 
 ### Prerequisites
 
-  dotnet
-  chromedriver
+* [dotnet](https://dotnet.microsoft.com/)
+* [chromedriver](https://chromedriver.chromium.org/)
 
 
 ### Installation
@@ -131,8 +131,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] tests running calling Chromedriver directly
-- [ ] add
+- [ ] create tests running calling Chromedriver directly.
+- [ ] add our Nova framework and determine if/where our sso problem is occurring. This will only be of use to those inside our company, as the Nova framework is on our internal nuget server.
 
 See the [open issues](https://github.com/StevenJV/dart/issues) for a full list of proposed features (and known issues).
 
