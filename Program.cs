@@ -20,7 +20,7 @@ public void SetupTest()
     //options.AddArguments("no-sandbox");        
     options.AddArguments("window-size=1920,1080");        
     options.AddArguments("disable-dev-shm-usage");        
-    //options.AddArguments("ignore-certificate-errors");
+    options.AddArguments("ignore-certificate-errors");
     options.BinaryLocation = "/usr/bin/google-chrome-stable";            
     ChromeDriverService service = ChromeDriverService.CreateDefaultService(driverPath,driverExecutableFileName);         
     driver = new ChromeDriver(service,options,TimeSpan.FromSeconds(30));
