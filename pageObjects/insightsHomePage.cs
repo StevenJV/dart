@@ -1,17 +1,19 @@
 using OpenQA.Selenium;
-public class insightsHomePage 
+using Navex.QA.Nova;
+using Navex.QA.Nova.PageObjects;
+
+public class insightsHomePage : PageObjectBase
 {
-  private IWebDriver _driver;
-  public insightsHomePage(IWebDriver driver) => this._driver = driver;
+    private static readonly By PageUniqueIdentifier = By.CssSelector("#Insights_header_text");
+    public insightsHomePage(Browser browser) : base(browser, PageUniqueIdentifier) { }
 
-  private static readonly By PageUniqueIdentifier = By.CssSelector("input[type='submit']");
 
-  private IWebElement _userId => _driver.FindElement(By.Id("UserId"));
-  private IWebElement _usernameText => _driver.FindElement(By.CssSelector("input[type='text']"));
-  private IWebElement _passwordText => _driver.FindElement(By.CssSelector("input[type='password']"));
+    private IWebElement _userId => Browser.Driver.WebDriver.FindElement(By.Id("UserId"));
+    private IWebElement _usernameText => Browser.Driver.WebDriver.FindElement(By.CssSelector("input[type='text']"));
+    private IWebElement _passwordText => Browser.Driver.WebDriver.FindElement(By.CssSelector("input[type='password']"));
 
-  private IWebElement _submitButton => _driver.FindElement(By.CssSelector("input[type='submit']"));
+    private IWebElement _submitButton => Browser.Driver.WebDriver.FindElement(By.CssSelector("input[type='submit']"));
 
-  public IWebElement _forgotPassword=> _driver.FindElement(By.XPath("//a[@id=\"ForgotPassword\"]"));
-  public string _forgotPasswordExpected = "Forgot Password";
+    public IWebElement _forgotPassword => Browser.Driver.WebDriver.FindElement(By.XPath("//a[@id=\"ForgotPassword\"]"));
+    public string _forgotPasswordExpected = "Forgot Password";
 }
